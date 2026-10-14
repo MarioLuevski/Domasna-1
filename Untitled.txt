@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Control Panel</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: #123456;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        nav {
+            background: #1e293b;
+            padding: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .room {
+            background: white;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #00000012;
+        }
+
+        .room h2 {
+            color: #123456;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .sensor {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 10px 0;
+        }
+
+        .sensor:last-child {
+            border-bottom: none;
+        }
+
+        .normal {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .warning {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .notifications {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        details {
+            padding: 12px;
+            margin: 10px 0;
+            background: #f8fafc;
+            border-left: 4px solid #38bdf8;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .off {
+            background: #e2e8f0;
+            color: #475569;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Smart Home Control Panel</h1>
+    <p>Monitor your home from one place</p>
+</header>
+
+<nav>
+    <a href="#bedroom">Bedroom</a>
+    <a href="#living-room">Living Room</a>
+    <a href="#kitchen">Kitchen</a>
+    <a href="#garden">Garden</a>
+    <a href="#notifications">Notifications</a>
+</nav>
+
+<main>
+    <h2>Room Sensors</h2>
+
+    <div class="room-grid">
+
+        <!-- BEDROOM -->
+        <section class="room" id="bedroom">
+            <h2>🛏️ Bedroom</h2>
+
+            <div class="sensor">
+                <h3>Temperature</h3>
+                <meter min="0" max="40" low="20" high="24"
+                       optimum="22" value="22">22°C</meter>
+                <p>Reading: <strong>22°C</strong></p>
+                <p>Normal range: 20–24°C</p>
+                <p class="normal">Within range</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="85"></progress> 85%</p>
+            </div>
+
+            <div class="sensor">
+                <h3>Humidity</h3>
+                <p>Reading: <strong>45%</strong></p>
+                <input type="range" min="0" max="100" value="45"
+                       disabled aria-label="Bedroom humidity">
+                <p>Normal range: 30–60%</p>
+                <p class="normal">Within range</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="70"></progress> 70%</p>
+            </div>
+
+            <div class="sensor">
+                <h3>Motion Detector</h3>
+                <p>Motion detected: <strong>No</strong></p>
+                <input type="checkbox" disabled aria-label="Motion detected">
+                <p>Expected state: No motion</p>
+                <p class="normal">Normal</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="90"></progress> 90%</p>
+            </div>
+        </section>
+
+        <!-- LIVING ROOM -->
+        <section class="room" id="living-room">
+            <h2>🛋️ Living Room</h2>
+
+            <div class="sensor">
+                <h3>Temperature</h3>
+                <p>Reading: <strong>26°C</strong></p>
+                <meter min="0" max="40" low="20" high="24"
+                       optimum="22" value="26">26°C</meter>
+                <p>Normal range: 20–24°C</p>
+                <p class="warning">⚠ Temperature too high!</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="65"></progress> 65%</p>
+            </div>
+
+            <div class="sensor">
+                <h3>Light Level</h3>
+                <p>Reading: <strong>65%</strong></p>
+                <input type="range" min="0" max="100" value="65"
+                       disabled aria-label="Living room light level">
+                <p>Normal range: 20–80%</p>
+                <p class="normal">Within range</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="80"></progress> 80%</p>
+            </div>
+
+            <div class="sensor">
+                <h3>Smoke Detector</h3>
+                <p>Smoke detected: <strong>No</strong></p>
+                <input type="checkbox" disabled aria-label="Smoke detected">
+                <p class="normal">No smoke detected</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="95"></progress> 95%</p>
+            </div>
+        </section>
+
+        <!-- KITCHEN -->
+        <section class="room" id="kitchen">
+            <h2>🍳 Kitchen</h2>
+
+            <div class="sensor">
+                <h3>Temperature</h3>
+                <p>Reading: <strong>23°C</strong></p>
+                <meter min="0" max="40" low="20" high="24"
+                       optimum="22" value="23">23°C</meter>
+                <p>Normal range: 20–24°C</p>
+                <p class="normal">Within range</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="75"></progress> 75%</p>
+            </div>
+
+            <div class="sensor">
+                <h3>Gas Detector</h3>
+                <p>Gas detected: <strong>No</strong></p>
+                <input type="checkbox" disabled aria-label="Gas detected">
+                <p class="normal">No gas detected</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="88"></progress> 88%</p>
+            </div>
+
+            <div class="sensor">
+                <h3>Water Leak Detector</h3>
+                <p>Leak detected: <strong>No</strong></p>
+                <input type="checkbox" disabled aria-label="Water leak detected">
+                <p class="normal">No leak detected</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="60"></progress> 60%</p>
+            </div>
+        </section>
+
+        <!-- GARDEN -->
+        <section class="room" id="garden">
+            <h2>🌳 Garden</h2>
+
+            <div class="sensor">
+                <h3>Outdoor Temperature</h3>
+                <p>Reading: <strong>28°C</strong></p>
+                <meter min="-10" max="45" low="10" high="30"
+                       optimum="22" value="28">28°C</meter>
+                <p>Normal range: 10–30°C</p>
+                <p class="normal">Within range</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="72"></progress> 72%</p>
+            </div>
+
+            <div class="sensor">
+                <h3>Soil Moisture</h3>
+                <p>Reading: <strong>18%</strong></p>
+                <input type="range" min="0" max="100" value="18"
+                       disabled aria-label="Garden soil moisture">
+                <p>Normal range: 30–70%</p>
+                <p class="warning">⚠ Soil is too dry!</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="55"></progress> 55%</p>
+            </div>
+
+            <div class="sensor">
+                <h3>Rain Detector</h3>
+                <p>Rain detected: <strong>No</strong></p>
+                <input type="checkbox" disabled aria-label="Rain detected">
+                <p class="normal">No rain detected</p>
+                <span class="status">Sensor ON</span>
+                <p>Battery: <progress max="100" value="92"></progress> 92%</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- NOTIFICATIONS -->
+    <section class="notifications" id="notifications">
+        <h2>🔔 Notifications</h2>
+
+        <details open>
+            <summary class="warning">
+                Living Room: High temperature
+            </summary>
+            <p>The temperature is 26°C, above the normal maximum of 24°C.</p>
+            <p>Suggested action: Turn on the cooling system.</p>
+        </details>
+
+        <details>
+            <summary class="warning">
+                Garden: Low soil moisture
+            </summary>
+            <p>Soil moisture is 18%, below the minimum of 30%.</p>
+            <p>Suggested action: Water the plants.</p>
+        </details>
+
+        <details>
+            <summary>System status</summary>
+            <p>12 sensors are installed across 4 rooms.</p>
+            <p>All sensors are switched on.</p>
+        </details>
+    </section>
+</main>
+
+<footer>
+    <p>Smart Home Control Panel | Demo Version</p>
+</footer>
+
+</body>
+</html>
