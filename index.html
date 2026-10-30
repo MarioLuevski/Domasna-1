@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formula 1 Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Formula 1 Game</h1>
+
+<h2>Race Controls</h2>
+
+<label>Select driver:</label>
+<select id="driver">
+    <option value="0">Max Verstappen</option>
+    <option value="1">Lewis Hamilton</option>
+    <option value="2">Charles Leclerc</option>
+    <option value="3">Lando Norris</option>
+    <option value="4">George Russell</option>
+    <option value="5">Oscar Piastri</option>
+    <option value="6">Carlos Sainz</option>
+    <option value="7">Fernando Alonso</option>
+    <option value="8">Sergio Perez</option>
+    <option value="9">Pierre Gasly</option>
+</select>
+
+<select id="tires">
+    <option value="Soft">Soft</option>
+    <option value="Hard">Hard</option>
+</select>
+
+<button onclick="pitStop()">Pit Stop / Change Tires</button>
+<button onclick="nextRound()">Next Round</button>
+
+<h3 id="round">Round: 0 / 10</h3>
+
+<h2>Driver Table</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Driver</th>
+            <th>Team</th>
+            <th>Speed</th>
+            <th>Skill</th>
+            <th>Tires</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="drivers"></tbody>
+</table>
+
+<h2 id="winner"></h2>
+
+<script src="script.js"></script>
+
+</body>
+</html>

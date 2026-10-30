@@ -1,0 +1,37 @@
+
+body {
+    font-family: Arial;
+    background: #eeeeee;
+    text-align: center;
+}
+
+h1 {
+    background: #cc0000;
+    color: white;
+    padding: 20px;
+}
+
+button, select {
+    padding: 10px;
+    margin: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th {
+    background: #333333;
+    color: white;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+}
