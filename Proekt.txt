@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="proekt.css">
+</head>
+<body>
+
+    <header>
+        <h1>Travel Planner</h1>
+        <p>Discover new places and plan your next adventure!</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#blog">Top 10 & Blog</a>
+        <a href="#survey">Survey</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Travel Planner!</h2>
+        <p>Find your next destination, explore attractions and share your travel experiences.</p>
+    </section>
+
+    <section id="destinations">
+        <h2>Destinations</h2>
+
+        <h3>Add a destination</h3>
+
+        <input type="text" id="city" placeholder="Enter city">
+        <input type="number" id="budget" placeholder="Enter budget">
+
+        <select id="category">
+            <option value="City">City</option>
+            <option value="Beach">Beach</option>
+            <option value="Mountain">Mountain</option>
+        </select>
+
+        <button onclick="addDestination()">Add Destination</button>
+
+        <h3>Filter destinations</h3>
+
+        <select id="filterCategory" onchange="showDestinations()">
+            <option value="All">All categories</option>
+            <option value="City">City</option>
+            <option value="Beach">Beach</option>
+            <option value="Mountain">Mountain</option>
+        </select>
+
+        <input type="number" id="filterBudget" placeholder="Maximum budget" oninput="showDestinations()">
+
+        <ul id="destinationList"></ul>
+        <p id="count"></p>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div id="galleryList"></div>
+    </section>
+
+    <section id="blog">
+        <h2>Top 10 Places to Visit</h2>
+
+        <div id="cityButtons"></div>
+
+        <h3 id="cityName">Select a city</h3>
+
+        <ol id="places"></ol>
+
+        <input type="text" id="newPlace" placeholder="Enter a place">
+        <button onclick="addPlace()">Add Place</button>
+
+        <h3>Comments</h3>
+
+        <div id="comments"></div>
+
+        <input type="text" id="visitor" placeholder="Your name">
+       <textarea id="surveyComments" placeholder="Tell us your opinion"></textarea>        <button onclick="addComment()">Submit Comment</button>
+    </section>
+
+    <section id="survey">
+        <h2>Travel Survey</h2>
+
+        <input type="text" id="visitorName" placeholder="Your name">
+
+        <p>Do you like travelling?</p>
+
+        <label>
+            <input type="radio" name="opinion" value="Yes">
+            Yes
+        </label>
+
+        <label>
+            <input type="radio" name="opinion" value="No">
+            No
+        </label>
+
+        <br><br>
+
+        <textarea id="comments" placeholder="Tell us your opinion"></textarea>
+
+        <br>
+
+        <button onclick="submitSurvey()">Submit Survey</button>
+    </section>
+
+    <footer>
+        <p>Travel Planner &copy; 2026</p>
+    </footer>
+
+    <script src="Java.js"></script>
+</body>
+</html>
